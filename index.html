@@ -1,951 +1,659 @@
 ```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>صدقة جارية عن والدة حمدي</title>
-
-  <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Cairo', sans-serif;
-      color: #fff;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, .12), transparent 25%),
-        radial-gradient(circle at 90% 70%, rgba(0, 160, 130, .15), transparent 30%),
-        linear-gradient(135deg, #031513, #062d29, #02100f);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       النجوم
-    ========================= */
-
-    .stars {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .55;
-      background-image:
-        radial-gradient(circle, white 1px, transparent 1px),
-        radial-gradient(circle, white 1px, transparent 1px);
-      background-size: 90px 90px, 150px 150px;
-      background-position: 20px 30px, 80px 100px;
-      z-index: 0;
-    }
-
-    /* =========================
-       Navigation
-    ========================= */
-
-    nav {
-      position: sticky;
-      top: 15px;
-      width: min(92%, 900px);
-      margin: 15px auto 0;
-      padding: 12px 18px;
-      border-radius: 20px;
-
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(18px);
-
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-
-      z-index: 20;
-    }
-
-    nav a {
-      color: #dce9e7;
-      text-decoration: none;
-      font-size: 13px;
-      padding: 8px 14px;
-      border-radius: 12px;
-      transition: .25s;
-    }
-
-    nav a:hover {
-      background: rgba(216,183,93,.15);
-      color: #e6c875;
-    }
-
-    /* =========================
-       Container
-    ========================= */
-
-    .container {
-      width: min(92%, 900px);
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* =========================
-       Hero
-    ========================= */
-
-    .hero {
-      text-align: center;
-      padding: 90px 0 70px;
-    }
-
-    .moon {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #f2d27d;
-
-      margin: auto;
-
-      position: relative;
-
-      box-shadow:
-        0 0 30px rgba(242,210,125,.3),
-        0 0 80px rgba(242,210,125,.08);
-    }
-
-    .moon::after {
-      content: "";
-      position: absolute;
-
-      width: 95px;
-      height: 95px;
-
-      background: #062d29;
-
-      border-radius: 50%;
-
-      top: -10px;
-      left: 22px;
-    }
-
-    .bismillah {
-      margin-top: 30px;
-      color: #d7bd75;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
-
-    .hero h1 {
-      font-family: 'Amiri', serif;
-      font-size: clamp(48px, 9vw, 85px);
-      margin: 12px 0;
-      color: #fff;
-
-      text-shadow:
-        0 0 30px rgba(255,255,255,.08);
-    }
-
-    .hero h2 {
-      font-family: 'Amiri', serif;
-      color: #e3c776;
-      font-size: clamp(28px, 5vw, 42px);
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      color: #a9c3bf;
-      font-size: 16px;
-    }
-
-    /* =========================
-       Glass Cards
-    ========================= */
-
-    .card {
-      background: rgba(255,255,255,.065);
-      border: 1px solid rgba(255,255,255,.12);
-
-      backdrop-filter: blur(18px);
-
-      border-radius: 28px;
-
-      padding: 40px;
-
-      margin-bottom: 30px;
-
-      box-shadow:
-        0 25px 70px rgba(0,0,0,.28);
-
-      animation: appear .8s ease;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-title .icon {
-      font-size: 35px;
-      margin-bottom: 8px;
-    }
-
-    .section-title h2 {
-      font-family: 'Amiri', serif;
-      font-size: 35px;
-      color: #e4c876;
-    }
-
-    .section-title p {
-      color: #8fa9a5;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    /* =========================
-       Dedication
-    ========================= */
-
-    .dedication {
-      text-align: center;
-      line-height: 2;
-    }
-
-    .dedication .flower {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .dedication h2 {
-      font-family: 'Amiri', serif;
-      color: #e5c978;
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
-
-    .dedication p {
-      color: #c2d4d1;
-      font-size: 16px;
-    }
-
-    /* =========================
-       Quran
-    ========================= */
-
-    .surah {
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.07);
-
-      border-radius: 20px;
-
-      padding: 25px;
-
-      margin-bottom: 18px;
-
-      transition: .3s;
-    }
-
-    .surah:hover {
-      transform: translateY(-3px);
-      border-color: rgba(220,190,110,.25);
-    }
-
-    .surah-name {
-      text-align: center;
-      color: #e4c876;
-      font-family: 'Amiri', serif;
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
-
-    .ayah {
-      font-family: 'Amiri', serif;
-      text-align: center;
-
-      color: #f2f2ed;
-
-      font-size: 24px;
-      line-height: 2;
-
-      margin-bottom: 12px;
-    }
-
-    .ayah-number {
-      display: inline-flex;
-
-      width: 28px;
-      height: 28px;
-
-      align-items: center;
-      justify-content: center;
-
-      border: 1px solid #cbaa58;
-      border-radius: 50%;
-
-      color: #d7bd75;
-
-      font-size: 13px;
-
-      margin: 0 5px;
-    }
-
-    /* =========================
-       Dua
-    ========================= */
-
-    .dua {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(216,181,90,.08),
-          rgba(0,0,0,.12)
-        );
-
-      border-right: 3px solid #d8b65e;
-
-      border-radius: 18px;
-
-      padding: 25px;
-
-      margin-bottom: 18px;
-
-      text-align: center;
-    }
-
-    .dua p {
-      font-family: 'Amiri', serif;
-      font-size: 24px;
-      line-height: 2;
-      color: #f5f3e8;
-    }
-
-    /* =========================
-       Tasbeeh
-    ========================= */
-
-    .tasbeeh {
-      text-align: center;
-    }
-
-    .counter {
-      font-size: 80px;
-      font-weight: 800;
-
-      color: #e4c876;
-
-      margin: 25px 0 5px;
-
-      text-shadow: 0 0 30px rgba(228,200,118,.2);
-    }
-
-    .counter-label {
-      color: #8fa9a5;
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
-
-    .tasbeeh-button {
-      width: min(100%, 420px);
-
-      border: none;
-
-      padding: 18px;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #e6cb7e,
-          #c29d4c
-        );
-
-      color: #06221f;
-
-      font-family: 'Cairo', sans-serif;
-
-      font-weight: 800;
-
-      font-size: 17px;
-
-      cursor: pointer;
-
-      box-shadow: 0 12px 30px rgba(0,0,0,.3);
-
-      transition: .2s;
-    }
-
-    .tasbeeh-button:hover {
-      transform: translateY(-3px);
-    }
-
-    .tasbeeh-button:active {
-      transform: scale(.95);
-    }
-
-    .reset {
-      margin-top: 15px;
-
-      background: transparent;
-
-      border: 1px solid rgba(255,255,255,.15);
-
-      color: #9bb3b0;
-
-      padding: 8px 18px;
-
-      border-radius: 10px;
-
-      cursor: pointer;
-
-      font-family: 'Cairo';
-    }
-
-    /* =========================
-       Final Message
-    ========================= */
-
-    .final {
-      text-align: center;
-      padding: 50px 20px;
-    }
-
-    .final .heart {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
-
-    .final h2 {
-      font-family: 'Amiri', serif;
-      font-size: 30px;
-      color: #e4c876;
-    }
-
-    .final p {
-      color: #a8bfbc;
-      margin-top: 10px;
-      line-height: 2;
-    }
-
-    /* =========================
-       Footer
-    ========================= */
-
-    footer {
-      text-align: center;
-
-      padding: 35px 10px 45px;
-
-      color: #718b88;
-
-      font-size: 12px;
-    }
-
-    footer .creator {
-      margin-top: 10px;
-
-      color: #617a77;
-
-      font-size: 11px;
-
-      letter-spacing: .5px;
-    }
-
-    footer .creator span {
-      color: #c3a65b;
-    }
-
-    /* =========================
-       Animations
-    ========================= */
-
-    @keyframes appear {
-
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-    /* =========================
-       Mobile
-    ========================= */
-
-    @media(max-width:600px) {
-
-      .hero {
-        padding: 60px 0 45px;
-      }
-
-      .card {
-        padding: 25px 18px;
-        border-radius: 22px;
-      }
-
-      .surah {
-        padding: 18px 12px;
-      }
-
-      .ayah {
-        font-size: 21px;
-      }
-
-      .dua p {
-        font-size: 21px;
-      }
-
-      .counter {
-        font-size: 65px;
-      }
-
-      nav {
-        top: 8px;
-      }
-
-      nav a {
-        font-size: 11px;
-        padding: 7px 9px;
-      }
-
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>صدقة جارية عن والدة حمدي</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Tahoma", Arial, sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(212,175,55,.08), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(0,255,180,.05), transparent 30%),
+                #061712;
+            color: #f4f0df;
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        /* النجوم */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255,255,255,.4) 1px, transparent 1px);
+            background-size: 90px 90px, 140px 140px;
+            background-position: 0 0, 40px 60px;
+            opacity: .15;
+            z-index: -1;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(4, 18, 14, .85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212,175,55,.2);
+        }
+
+        .logo {
+            color: #d8b84c;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #d8b84c;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeUp 1.2s ease;
+        }
+
+        .bismillah {
+            color: #d8b84c;
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            color: #f0d77a;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(240,215,122,.15);
+        }
+
+        .hero h2 {
+            font-size: clamp(24px, 4vw, 42px);
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            color: #c7c7b9;
+            font-size: 18px;
+        }
+
+        .scroll {
+            margin-top: 40px;
+            display: inline-block;
+            color: #d8b84c;
+            text-decoration: none;
+            border: 1px solid rgba(216,184,76,.4);
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .scroll:hover {
+            background: rgba(216,184,76,.1);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 7%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: #e5c75b;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        /* Dedication */
+        .dedication {
+            text-align: center;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.05),
+                rgba(255,255,255,.015)
+            );
+            border: 1px solid rgba(216,184,76,.2);
+            border-radius: 30px;
+            padding: 55px 30px;
+            box-shadow: 0 20px 70px rgba(0,0,0,.2);
+        }
+
+        .dedication .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .dedication h2 {
+            color: #e5c75b;
+            margin-bottom: 15px;
+        }
+
+        .dedication p {
+            max-width: 750px;
+            margin: auto;
+            color: #ccc;
+        }
+
+        /* Quran */
+        .quran-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 22px;
+            padding: 28px;
+            transition: .4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(216,184,76,.35);
+            box-shadow: 0 15px 45px rgba(0,0,0,.2);
+        }
+
+        .card h3 {
+            color: #e4c65c;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .quran-text {
+            font-size: 21px;
+            color: #eee;
+        }
+
+        /* Duas */
+        .duas {
+            display: grid;
+            gap: 18px;
+        }
+
+        .dua {
+            padding: 25px;
+            border-right: 3px solid #d8b84c;
+            background: rgba(255,255,255,.035);
+            border-radius: 15px;
+            color: #ddd;
+            transition: .3s;
+        }
+
+        .dua:hover {
+            background: rgba(216,184,76,.06);
+            transform: translateX(-5px);
+        }
+
+        /* Tasbeeh */
+        .tasbeeh-box {
+            max-width: 550px;
+            margin: auto;
+            text-align: center;
+            padding: 45px 25px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.06),
+                rgba(255,255,255,.02)
+            );
+            border: 1px solid rgba(216,184,76,.25);
+            border-radius: 30px;
+        }
+
+        .counter {
+            font-size: 80px;
+            color: #e5c75b;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .tasbeeh-btn {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px solid #d8b84c;
+            background: radial-gradient(circle, #163d2d, #092018);
+            color: #f4dc7d;
+            font-size: 25px;
+            cursor: pointer;
+            transition: .2s;
+            box-shadow: 0 0 35px rgba(216,184,76,.12);
+        }
+
+        .tasbeeh-btn:active {
+            transform: scale(.92);
+        }
+
+        .reset {
+            margin-top: 25px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            border: 1px solid #555;
+            background: transparent;
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: #777;
+        }
+
+        .creator {
+            margin-top: 15px;
+            color: #d8b84c;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 13px 20px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
+            section {
+                padding: 65px 20px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .moon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero h2 {
+                font-size: 25px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .quran-text {
+                font-size: 19px;
+            }
+
+            .counter {
+                font-size: 65px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-  <div class="stars"></div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🕊️ صدقة جارية</div>
+
+        <ul>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#quran">القرآن</a></li>
+            <li><a href="#duas">الأدعية</a></li>
+            <li><a href="#tasbeeh">السبحة</a></li>
+        </ul>
+    </nav>
 
 
-  <!-- Navigation -->
-
-  <nav>
-
-    <a href="#home">الرئيسية</a>
-    <a href="#quran">القرآن</a>
-    <a href="#dua">الأدعية</a>
-    <a href="#tasbeeh">السبحة</a>
-
-  </nav>
+    <!-- Hero -->
+    <header class="hero" id="home">
 
 
-  <main class="container">
+        <div class="hero-content">
+
+            <div class="bismillah">
+                بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+            </div>
+
+            <h1>صدقة جارية</h1>
+
+            <h2>عن والدة حمدي</h2>
+
+            <p>
+                نسأل الله أن يجعل هذا العمل نورًا ورحمةً لها،
+                وأن يتقبل منا ومنكم صالح الأعمال.
+            </p>
+
+            <a href="#dedication" class="scroll">
+                ابدأ بالدعاء 🤲
+            </a>
+
+        </div>
+
+    </header>
 
 
-    <!-- HERO -->
+    <!-- Dedication -->
+    <section id="dedication">
 
-    <section class="hero" id="home">
+        <div class="dedication">
 
-      <div class="moon"></div>
+            <div class="icon">🕊️</div>
 
-      <div class="bismillah">
-        بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
-      </div>
+            <h2>إهداء ورحمة</h2>
 
-      <h1>
-        صدقة جارية
-      </h1>
+            <p>
+                هذا الموقع صدقة جارية عن والدة حمدي،
+                نسأل الله العظيم أن يرحمها رحمةً واسعة،
+                ويغفر لها، وينور قبرها، ويجعل القرآن
+                والدعاء في ميزان حسناتها.
+            </p>
 
-      <h2>
-        عن والدة حمدي
-      </h2>
+            <p style="margin-top:20px;">
+                <strong>
+                    اللهم اجعلها من أهل الجنة، وارزق أهلها الصبر والسلوان.
+                </strong>
+            </p>
 
-      <p>
-        رحمها الله وأسكنها فسيح جناته
-      </p>
+        </div>
 
     </section>
 
 
-    <!-- DEDICATION -->
+    <!-- Quran -->
+    <section id="quran">
 
-    <section class="card">
-
-      <div class="dedication">
-
-        <div class="flower">
-          🕊️
+        <div class="section-title">
+            <h2>📖 من القرآن الكريم</h2>
+            <p>تلاوة ودعاء بنية الرحمة والمغفرة</p>
         </div>
 
-        <h2>
-          اللهم اغفر لها وارحمها
-        </h2>
+        <div class="quran-grid">
 
-        <p>
-          هذا العمل صدقة جارية عن والدة حمدي،
-          نسأل الله أن يتقبلها منها، وأن يجعلها نورًا
-          لها في قبرها، وسببًا لرفع درجاتها في الجنة.
-        </p>
+            <div class="card">
+                <h3>سورة الفاتحة</h3>
 
-      </div>
+                <p class="quran-text">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                    <br><br>
+                    الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+                    <br>
+                    الرَّحْمَٰنِ الرَّحِيمِ
+                    <br>
+                    مَالِكِ يَوْمِ الدِّينِ
+                    <br>
+                    إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+                    <br>
+                    اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>سورة الإخلاص</h3>
+
+                <p class="quran-text">
+                    قُلْ هُوَ اللَّهُ أَحَدٌ
+                    <br>
+                    اللَّهُ الصَّمَدُ
+                    <br>
+                    لَمْ يَلِدْ وَلَمْ يُولَدْ
+                    <br>
+                    وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>سورة الفلق</h3>
+
+                <p class="quran-text">
+                    قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ
+                    <br>
+                    مِن شَرِّ مَا خَلَقَ
+                    <br>
+                    وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
+                    <br>
+                    وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ
+                    <br>
+                    وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>سورة الناس</h3>
+
+                <p class="quran-text">
+                    قُلْ أَعُوذُ بِرَبِّ النَّاسِ
+                    <br>
+                    مَلِكِ النَّاسِ
+                    <br>
+                    إِلَٰهِ النَّاسِ
+                    <br>
+                    مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ
+                    <br>
+                    الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ
+                    <br>
+                    مِنَ الْجِنَّةِ وَالنَّاسِ
+                </p>
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- QURAN -->
+    <!-- Duas -->
+    <section id="duas">
 
-    <section class="card" id="quran">
+        <div class="section-title">
 
-      <div class="section-title">
+            <h2>🤲 أدعية للمتوفاة</h2>
 
-        <div class="icon">
-          📖
+            <p>
+                اللهم ارحمها واغفر لها واجعل قبرها روضة من رياض الجنة
+            </p>
+
         </div>
 
-        <h2>
-          من القرآن الكريم
-        </h2>
 
-        <p>
-          تلاوة وتدبر وصدقة عن روحها
-        </p>
+        <div class="duas">
 
-      </div>
+            <div class="dua">
+                اللهم اغفر لها وارحمها، وعافها واعف عنها،
+                وأكرم نزلها، ووسع مدخلها.
+            </div>
 
+            <div class="dua">
+                اللهم اجعل قبرها نورًا وضياءً، وافتح لها فيه بابًا
+                إلى الجنة.
+            </div>
 
-      <!-- سورة الفاتحة -->
+            <div class="dua">
+                اللهم آنس وحشتها، وارحم غربتها، واجعلها في رحمتك
+                ورضوانك.
+            </div>
 
-      <div class="surah">
+            <div class="dua">
+                اللهم اجعل القرآن الكريم شفيعًا لها،
+                وارفع درجتها به في الجنة.
+            </div>
 
-        <div class="surah-name">
-          سورة الفاتحة
+            <div class="dua">
+                اللهم اجعل ما نقدمه من دعاء وصدقة في ميزان حسناتها.
+            </div>
+
+            <div class="dua">
+                اللهم اجمعها بمن تحب في جنات النعيم،
+                بلا حساب ولا سابق عذاب.
+            </div>
+
+            <div class="dua">
+                اللهم ارزق أهلها الصبر والثبات،
+                واجبر قلوبهم، واخلف عليهم خيرًا.
+            </div>
+
+            <div class="dua">
+                اللهم ارحم موتانا وموتى المسلمين أجمعين.
+            </div>
+
         </div>
-
-        <div class="ayah">
-          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        </div>
-
-        <div class="ayah">
-          الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-          <span class="ayah-number">٢</span>
-        </div>
-
-        <div class="ayah">
-          الرَّحْمَٰنِ الرَّحِيمِ
-          <span class="ayah-number">٣</span>
-        </div>
-
-        <div class="ayah">
-          مَالِكِ يَوْمِ الدِّينِ
-          <span class="ayah-number">٤</span>
-        </div>
-
-        <div class="ayah">
-          إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-          <span class="ayah-number">٥</span>
-        </div>
-
-        <div class="ayah">
-          اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
-          <span class="ayah-number">٦</span>
-        </div>
-
-        <div class="ayah">
-          صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-          غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-          <span class="ayah-number">٧</span>
-        </div>
-
-      </div>
-
-
-      <!-- سورة الإخلاص -->
-
-      <div class="surah">
-
-        <div class="surah-name">
-          سورة الإخلاص
-        </div>
-
-        <div class="ayah">
-          قُلْ هُوَ اللَّهُ أَحَدٌ
-        </div>
-
-        <div class="ayah">
-          اللَّهُ الصَّمَدُ
-        </div>
-
-        <div class="ayah">
-          لَمْ يَلِدْ وَلَمْ يُولَدْ
-        </div>
-
-        <div class="ayah">
-          وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
-        </div>
-
-      </div>
-
-
-      <!-- سورة الفلق -->
-
-      <div class="surah">
-
-        <div class="surah-name">
-          سورة الفلق
-        </div>
-
-        <div class="ayah">
-          قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ
-        </div>
-
-        <div class="ayah">
-          مِن شَرِّ مَا خَلَقَ
-        </div>
-
-        <div class="ayah">
-          وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
-        </div>
-
-        <div class="ayah">
-          وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ
-        </div>
-
-        <div class="ayah">
-          وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
-        </div>
-
-      </div>
-
-
-      <!-- سورة الناس -->
-
-      <div class="surah">
-
-        <div class="surah-name">
-          سورة الناس
-        </div>
-
-        <div class="ayah">
-          قُلْ أَعُوذُ بِرَبِّ النَّاسِ
-        </div>
-
-        <div class="ayah">
-          مَلِكِ النَّاسِ
-        </div>
-
-        <div class="ayah">
-          إِلَٰهِ النَّاسِ
-        </div>
-
-        <div class="ayah">
-          مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ
-        </div>
-
-        <div class="ayah">
-          الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ
-        </div>
-
-        <div class="ayah">
-          مِنَ الْجِنَّةِ وَالنَّاسِ
-        </div>
-
-      </div>
 
     </section>
 
 
-    <!-- DUA -->
+    <!-- Tasbeeh -->
+    <section id="tasbeeh">
 
-    <section class="card" id="dua">
+        <div class="section-title">
 
-      <div class="section-title">
+            <h2>📿 السبحة الإلكترونية</h2>
 
-        <div class="icon">
-          🤲
+            <p>
+                سبّح واذكر الله واهدِ ثواب الدعاء للمتوفاة
+            </p>
+
         </div>
 
-        <h2>
-          أدعية للمتوفاة
-        </h2>
 
-        <p>
-          نسأل الله أن يتقبلها ويرحمها
-        </p>
+        <div class="tasbeeh-box">
 
-      </div>
+            <div>عدد التسبيحات</div>
 
+            <div class="counter" id="counter">
+                0
+            </div>
 
-      <div class="dua">
-        <p>
-          اللهم اغفر لها وارحمها، وعافها واعفُ عنها،
-          وأكرم نُزلها ووسّع مُدخلها.
-        </p>
-      </div>
+            <button class="tasbeeh-btn" onclick="increase()">
+                سَبِّح
+            </button>
 
+            <br>
 
-      <div class="dua">
-        <p>
-          اللهم اجعل قبرها روضةً من رياض الجنة،
-          ولا تجعله حفرةً من حفر النار.
-        </p>
-      </div>
+            <button class="reset" onclick="resetCounter()">
+                إعادة العداد
+            </button>
 
-
-      <div class="dua">
-        <p>
-          اللهم آنس وحشتها، ونوّر قبرها،
-          واجعلها في رحمتك ورضوانك.
-        </p>
-      </div>
-
-
-      <div class="dua">
-        <p>
-          اللهم ارفع درجتها في المهديين،
-          واخلفها في عقبها في الغابرين.
-        </p>
-      </div>
-
-
-      <div class="dua">
-        <p>
-          اللهم اجعل ما قدمته في حياتها شفيعًا لها،
-          واجعل حسناتها نورًا لها يوم القيامة.
-        </p>
-      </div>
-
-
-      <div class="dua">
-        <p>
-          اللهم اجمعها بمن تحب في جنات النعيم،
-          واجعلها من أهل الفردوس الأعلى.
-        </p>
-      </div>
-
-
-      <div class="dua">
-        <p>
-          اللهم ارحم موتانا وموتى المسلمين،
-          واغفر لهم واجمعنا بهم في جناتك.
-        </p>
-      </div>
+        </div>
 
     </section>
 
 
-    <!-- TASBEEH -->
+    <!-- Footer -->
+    <footer>
 
-    <section class="card" id="tasbeeh">
-
-      <div class="section-title">
-
-        <div class="icon">
-          📿
+        <div>
+            اللهم اجعل هذا العمل صدقة جارية ورحمةً ونورًا لها 🤍
         </div>
 
-        <h2>
-          السبحة الإلكترونية
-        </h2>
-
-        <p>
-          استغفر الله العظيم وأتوب إليه
-        </p>
-
-      </div>
-
-
-      <div class="tasbeeh">
-
-        <div class="counter" id="counter">
-          0
+        <div class="creator">
+            UsiifOsama
         </div>
 
-        <div class="counter-label">
-          عدد مرات الاستغفار
-        </div>
-
-        <button class="tasbeeh-button" onclick="increaseCount()">
-          استغفر الله العظيم وأتوب إليه
-        </button>
-
-        <br>
-
-        <button class="reset" onclick="resetCount()">
-          إعادة العداد
-        </button>
-
-      </div>
-
-    </section>
+    </footer>
 
 
-    <!-- FINAL -->
+    <script>
 
-    <section class="final">
+        let count = 0;
 
-      <div class="heart">
-        🤍
-      </div>
+        function increase() {
 
-      <h2>
-        رحمها الله رحمةً واسعة
-      </h2>
+            count++;
 
-      <p>
-        اللهم اجعل هذا العمل خالصًا لوجهك الكريم،
-        واجعله صدقةً جاريةً عنها.
-      </p>
+            document.getElementById("counter").textContent = count;
 
-    </section>
+        }
 
+        function resetCounter() {
 
-  </main>
+            count = 0;
 
+            document.getElementById("counter").textContent = count;
 
-  <!-- FOOTER -->
+        }
 
-  <footer>
-
-    <div>
-      اللهم اغفر لها وارحمها وأسكنها فسيح جناتك
-    </div>
-
-    <div class="creator">
-     <span>UsiifOsama</span>
-    </div>
-
-  </footer>
-
-
-  <script>
-
-    let count = 0;
-
-    function increaseCount() {
-
-      count++;
-
-      document.getElementById("counter").innerText = count;
-
-    }
-
-    function resetCount() {
-
-      count = 0;
-
-      document.getElementById("counter").innerText = count;
-
-    }
-
-  </script>
+    </script>
 
 </body>
-
 </html>
 ```
